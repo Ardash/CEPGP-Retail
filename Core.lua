@@ -1,5 +1,5 @@
 --[[ Globals ]]--
-CEPGP_VERSION = "1.12.8.release-hotfix2";
+CEPGP_VERSION = "1.12.8.release";
 SLASH_CEPGP1 = "/CEPGP";
 SLASH_CEPGP2 = "/cep";
 CEPGP_VERSION_NOTIFIED = false;
@@ -557,8 +557,8 @@ function CEPGP_addStandbyEP(amount, boss, msg)
 				local _, rank, _, _, _, _, _, offNote, online = GetGuildRosterInfo(index);
 				if online or STANDBYOFFLINE then
 					local EP,GP = CEPGP_getEPGP(offNote);
-					EP = math.floor(tonumber(EP) + amount);
-					GP = math.floor(tonumber(GP));
+					EP = tonumber(EP) + amount;
+					GP = tonumber(GP);
 					if GP < BASEGP then
 						GP = BASEGP;
 					end

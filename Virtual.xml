@@ -424,11 +424,12 @@
 				local item = _G[self:GetName() .. "item"]:GetText();
 				if item then
 					if GetItemInfo(item) then
-						local link = CEPGP_getItemLink(GetItemInfoInstant(item));
+						local _, link = GetItemInfo(item);
 						if link and not OVERRIDE_INDEX[link] then
 							local gp = OVERRIDE_INDEX[item];
 							OVERRIDE_INDEX[item] = nil;
 							OVERRIDE_INDEX[link] = gp;
+							CEPGP_UpdateOverrideScrollBar();
 						end
 					end
 				end

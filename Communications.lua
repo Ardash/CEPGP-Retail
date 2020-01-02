@@ -327,7 +327,7 @@ function CEPGP_IncAddonMsg(message, sender, sync)
 					AUTOEP[field] = false;
 				end
 			elseif option == "OVERRIDE" then
-				if not CEPGP_inOverride(val) then
+				if not CEPGP_inOverride(field) then
 					OVERRIDE_INDEX[field] = val;
 				end
 			end
@@ -385,6 +385,7 @@ function CEPGP_IncAddonMsg(message, sender, sync)
 			elseif option == "STANDBYPERCENT" then
 				STANDBYPERCENT = tonumber(val);		
 			elseif option == "COMPLETE" then
+				CEPGP_UpdateOverrideScrollBar();
 				CEPGP_print("Import complete");
 				CEPGP_button_options_OnClick();
 			end
